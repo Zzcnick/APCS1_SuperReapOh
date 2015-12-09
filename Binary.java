@@ -3,7 +3,7 @@
    HW43 -- This or That / Binary Class
    2015-12-08 */
 
-public class Binary {
+public class Binary implements Comparable {
 
     private int _decNum;
     private String _binNum;
@@ -169,9 +169,10 @@ public class Binary {
       negative integer if this<input, positive integer otherwise
       =============================================*/
     public int compareTo( Object other ) {
-	if (!(other instanceof Binary)) {
-	    return -1;
-	}
+	if (other.equals(null))
+	    throw new NullPointerException("ERROR: Null object");
+	if (!(other instanceof Binary))
+	    throw new ClassCastException("ERROR: Incomparable classes");
 	if (_decNum > ((Binary)other).getValue()) {
 	    return 1;
 	} else if (_decNum < ((Binary)other).getValue()) {
@@ -180,7 +181,6 @@ public class Binary {
 	    return 0;
 	}
     }
-
 
     //main method for testing
     public static void main( String[] args ) {

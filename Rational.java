@@ -127,13 +127,12 @@ public class Rational implements Comparable {
 	return -999;
     }
     public int compareTo(Object o) {
-	// Aliasing
+	if (other.equals(null))
+	    throw new NullPointerException("ERROR: Null object");
+	if (!(other instanceof Rational))
+	    throw new ClassCastException("ERROR: Incomparable classes");
 	if (this == o) {return 0;}
-	// Check Classes
-	if (!(o instanceof Rational)) {
-	    return compareTo((Rational)o);
-	}
-	return -1;
+	return compareTo((Rational)o);
     }
 
     // equals - returns if two rationals are equal
