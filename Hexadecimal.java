@@ -3,7 +3,7 @@
    HW44 -- This or That or Fourteen Other Things / Hexadecimal Class
    2015-12-08 */
 
-public class Hexadecimal {
+public class Hexadecimal implements Comparable {
 
     private final static String HEXDIGITS = "0123456789ABCDEF";
     private int _decNum;
@@ -194,9 +194,10 @@ public class Hexadecimal {
       negative integer if this<input, positive integer otherwise
       =============================================*/
     public int compareTo( Object other ) {
-	if (!(other instanceof Hexadecimal)) {
-	    throw new ClassCastException("Incorrect type of parameter");
-	}
+	if (other.equals(null))
+	    throw new NullPointerException("ERROR: Null object");
+	if (!(other instanceof Rational))
+	    throw new ClassCastException("ERROR: Incomparable classes");
 	if (_decNum > ((Hexadecimal)other).getValue()) {
 	    return 1;
 	} else if (_decNum < ((Hexadecimal)other).getValue()) {
