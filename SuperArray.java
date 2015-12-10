@@ -47,7 +47,7 @@ public class SuperArray {
     //         int index - index to add to
     public void add(int index, Comparable value) {
 	if (_size+1 >= _data.length) {expand();}
-	for (int i = _lastPos; i > index; i--) {
+	for (int i = _size; i > index; i--) {
 	    _data[i] = _data[i-1];
 	}
 	_data[index] = value;
@@ -105,11 +105,70 @@ public class SuperArray {
 	return true;
     }
 
+    //linSearch -- returns index of first occurrence of a value
+    //             if value not in superarray, return -1
+    public int linSearch(Comparable value) {
+	for (int i = 0; i < _size; i++) {
+	    if (_data[i].equals(value)) {
+		return i;
+	    }
+	}
+	return -1;
+    }
+
     //main method for testing
     public static void main( String[] args ) {
 	SuperArray rationals = new SuperArray();
 	SuperArray binaries = new SuperArray();
 	SuperArray hexadecs = new SuperArray();
+
+	// add()
+	for (int i = 0; i < 10; i++) {
+	    binaries.add(new Binary(i));
+	    hexadecs.add(new Hexadecimal(i));
+	    for (int j = 1; j < 3; j++) {
+		rationals.add(new Rational(i,j));
+	    }
+	}
+	
+	// isSorted)()
+	System.out.println("Sorted? Rationals:\t" + rationals.isSorted());
+	System.out.println("Sorted? Binaries:\t" + binaries.isSorted());
+	System.out.println("Sorted? Hexadecimals:\t" + hexadecs.isSorted() +
+			   "\n");
+
+	// add() - at index
+	for (int i = 5; i < 8; i++) {
+	    rationals.add(i, new Rational(i*i, i+2));
+	    binaries.add(i, new Binary(i*i));
+	    hexadecs.add(i, new Hexadecimal(i*i));
+	}
+
+	// toString()
+	System.out.println("Rationals:\t" + rationals);
+	System.out.println("Binaries:\t" + binaries);
+	System.out.println("Hexadecimals:\t" + hexadecs +
+			   "\n");
+
+	// remove()
+	for (int i = 0; i < 9; i++) {
+	    binaries.remove();
+	    hexadecs.remove();
+	    rationals.remove();
+	}
+	System.out.println("Rationals:\t" + rationals);
+	System.out.println("Binaries:\t" + binaries);
+	System.out.println("Hexadecimals:\t" + hexadecs +
+			   "\n");
+
+	// linSearch();
+	System.out.println("Linear Search for the value 3:");
+	System.out.println("Rationals:\t" +
+			   rationals.linSearch(new Rational(3,1)));
+	System.out.println("Binaries:\t" +
+			   binaries.linSearch(new Binary(3)));
+	System.out.println("Hexadecimals:\t" +
+			   hexadecs.linSearch(new Hexadecimal(3)) + "\n");
 	
     }//end main
 		

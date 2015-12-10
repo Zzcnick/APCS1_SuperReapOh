@@ -196,7 +196,7 @@ public class Hexadecimal implements Comparable {
     public int compareTo( Object other ) {
 	if (other.equals(null))
 	    throw new NullPointerException("ERROR: Null object");
-	if (!(other instanceof Rational))
+	if (!(other instanceof Hexadecimal))
 	    throw new ClassCastException("ERROR: Incomparable classes");
 	if (_decNum > ((Hexadecimal)other).getValue()) {
 	    return 1;
