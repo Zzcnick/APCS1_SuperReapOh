@@ -1,7 +1,7 @@
-/* Team FeelTheBernieSanders - Zicheng Zhen and Matthew So
+/* Zicheng Zhen
    APCS1 pd10
-   HW42 -- Array of Titanium / More Implementation of Interfaces
-   2015-12-04 */
+   HW45 -- Come Together
+   2015-12-09 */
 
 public class SuperArray {
 

@@ -1,7 +1,7 @@
-/* Team FeelTheBernieSanders -- Zicheng Zhen and Dennis Duman
-   APCS1 pd10 
-   HW41 -- Implementing Interfaces
-   2015-12-03 */
+/* Zicheng Zhen
+   APCS1 pd10
+   HW45 -- Come Together
+   2015-12-09 */
 
 // Rational Class
 public class Rational implements Comparable {

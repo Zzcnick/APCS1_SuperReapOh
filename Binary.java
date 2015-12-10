@@ -1,7 +1,7 @@
 /* Zicheng Zhen
    APCS1 pd10
-   HW43 -- This or That / Binary Class
-   2015-12-08 */
+   HW45 -- Come Together
+   2015-12-09 */
 
 public class Binary implements Comparable {
 
